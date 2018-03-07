@@ -257,7 +257,7 @@ do ($ = jQuery, window = @) ->
       @selectrContainer.removeClass('max-selection-reached')
 
       $(opt).removeClass('selected')
-      $("option[value=#{$(opt).data('val')}]", @source).prop 'selected', false
+      $("option[value='#{$(opt).data('val')}']", @source).prop 'selected', false
 
       @updateFooter()
       @triggerChange()

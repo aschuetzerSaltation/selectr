@@ -265,7 +265,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    Selectr.prototype.deselectOption = function(opt) {
 	      this.selectrContainer.removeClass('max-selection-reached');
 	      $(opt).removeClass('selected');
-	      $("option[value=" + ($(opt).data('val')) + "]", this.source).prop('selected', false);
+	      $("option[value='" + ($(opt).data('val')) + "']", this.source).prop('selected', false);
 	      this.updateFooter();
 	      return this.triggerChange();
 	    };
