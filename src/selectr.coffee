@@ -85,7 +85,7 @@ do ($ = jQuery, window = @) ->
           # insert name
           .append(
             $(document.createElement 'div')
-              .html     $(opt).text().split(@args.separator).map((elm) -> "<span>#{elm}</span>").join(@args.separator || '')
+              .html     $(opt).text().split(@args.separator).map((elm) -> "<span class=\"option-name\">#{elm}</span>").join(@args.separator || '')
               .addClass 'option-name'
               .attr     title: $(opt).text()
           )
@@ -221,6 +221,7 @@ do ($ = jQuery, window = @) ->
       ctrlKeyUpHandler = (e) ->
         $('.list-group', selectrContainer).removeClass 'ctrl-key' if not e.ctrlKey
 
+      $(selectrContainer).find('span.option-name').on 'click', addRemoveHandler
       $(selectrContainer).on 'click',               '.list-group-item', listItemHandler
       $(selectrContainer).on 'click',               '.add-remove',      addRemoveHandler
       $(selectrContainer).on 'click change keyup',  '.form-control',    searchHandler

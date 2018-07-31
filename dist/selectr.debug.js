@@ -116,7 +116,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      for (i = 0, len = ref.length; i < len; i++) {
 	        opt = ref[i];
 	        results.push($(document.createElement('li')).addClass("list-group-item " + ($(opt).is(':selected') ? 'selected' : void 0)).data('val', $(opt).val()).append($(document.createElement('div')).addClass("color-code " + (!$(opt).data('selectr-color') ? 'no-color' : void 0)).css('background-color', $(opt).data('selectr-color'))).append($(document.createElement('div')).html($(opt).text().split(this.args.separator).map(function(elm) {
-	          return "<span>" + elm + "</span>";
+	          return "<span class=\"option-name\">" + elm + "</span>";
 	        }).join(this.args.separator || '')).addClass('option-name').attr({
 	          title: $(opt).text()
 	        })).append($(document.createElement('div')).html('&times').addClass("add-remove " + (!this.multi ? 'hidden' : void 0))));
@@ -230,6 +230,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          return $('.list-group', selectrContainer).removeClass('ctrl-key');
 	        }
 	      };
+	      $(selectrContainer).find('span.option-name').on('click', addRemoveHandler);
 	      $(selectrContainer).on('click', '.list-group-item', listItemHandler);
 	      $(selectrContainer).on('click', '.add-remove', addRemoveHandler);
 	      $(selectrContainer).on('click change keyup', '.form-control', searchHandler);
